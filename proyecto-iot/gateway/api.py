@@ -23,18 +23,27 @@ logging.basicConfig(
 )
 logger = logging.getLogger("iot-api")
 
-mqtt_client = mqtt.Client(client_id="iot_api_publisher")
+mqtt_client = mqtt.Client(
+    callback_api_version=mqtt.CallbackAPIVersion.VERSION2,
+    client_id="iot_api_publisher",
+)
 mqtt_connected = False
 
 
-def on_connect(client: mqtt.Client, userdata: Any, flags: Dict[str, Any], rc: int, properties: Any = None) -> None:
+def on_connect(
+    client: mqtt.Client,
+    userdata: Any,
+    flags: Dict[str, Any],
+    reason_code: mqtt.ReasonCode,
+    properties: Any,
+) -> None:
     """Marca el estado de conexion del cliente MQTT publicador."""
     global mqtt_connected
-    mqtt_connected = rc == 0
+    mqtt_connected = reason_code == 0
     if mqtt_connected:
         logger.info("API conectada a broker MQTT en %s:%s", BROKER_HOST, BROKER_PORT)
     else:
-        logger.error("No se pudo conectar a MQTT. Codigo de retorno: %s", rc)
+        logger.error("No se pudo conectar a MQTT. Codigo de retorno: %s", reason_code)
 
 
 def start_mqtt() -> None:
