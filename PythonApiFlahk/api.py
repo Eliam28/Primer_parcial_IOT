@@ -6,6 +6,7 @@ import paho.mqtt.publish as publish
 from pathlib import Path
 
 FILE = Path(__file__).resolve().parent / "data.json"
+RELAY_STATE_FILE = Path(__file__).resolve().parent / "relay_state.json"
 BROKER = "192.168.0.28"
 BROKER_PORT = 1883
 
@@ -19,16 +20,37 @@ def load_data():
     except: 
         return []
 
+
+def load_relay_state():
+    try:
+        with open(RELAY_STATE_FILE, encoding="utf-8") as f:
+            data = json.load(f)
+            if isinstance(data, dict):
+                return data
+    except:
+        pass
+    return {}
+
+
+def save_relay_state(state):
+    with open(RELAY_STATE_FILE, "w", encoding="utf-8") as f:
+        json.dump(state, f, indent=2)
+
 @app.route("/api/latest")
 def latest():
     data = load_data()
+    relay_state = load_relay_state()
     latest_by_node = {}
 
     # Recorre de mas reciente a mas antiguo y toma solo el primero por nodo.
     for item in reversed(data):
         nodo = item.get("data", {}).get("nodo")
         if nodo and nodo not in latest_by_node:
-            latest_by_node[nodo] = item
+            record = dict(item)
+            payload = dict(record.get("data", {}))
+            payload["relay_on"] = bool(relay_state.get(nodo, False))
+            record["data"] = payload
+            latest_by_node[nodo] = record
 
     # Orden estable por nombre de nodo para una UI predecible (nodo1, nodo2, ...)
     latest_list = [latest_by_node[n] for n in sorted(latest_by_node.keys())]
@@ -126,7 +148,16 @@ def control():
     except Exception as e:
         return jsonify({"error": "no se pudo publicar al broker", "detail": str(e)}), 503
 
-    return jsonify({"status":"ok","topic":topic,"estado":estado})
+    relay_state = load_relay_state()
+    relay_state[nodo] = estado == "1"
+    save_relay_state(relay_state)
+
+    return jsonify({
+        "status": "ok",
+        "topic": topic,
+        "estado": estado,
+        "relay_on": relay_state[nodo],
+    })
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

@@ -14,7 +14,7 @@ type SensorData = {
   temperatura: number;
   humedad: number;
   luz: number;
-  relay?: number;
+  relayOn?: boolean;
   timestamp: string;
 };
 
@@ -26,7 +26,7 @@ type RawApiItem = {
     temperatura?: number;
     humedad?: number;
     luz?: number;
-    relay?: number;
+    relay_on?: boolean;
   };
 };
 
@@ -42,7 +42,7 @@ const normalizeItem = (item: RawApiItem): SensorData | null => {
     temperatura: Number(item.data.temperatura ?? 0),
     humedad: Number(item.data.humedad ?? 0),
     luz: Number(item.data.luz ?? 0),
-    relay: item.data.relay,
+    relayOn: item.data.relay_on,
     timestamp: item.timestamp,
   };
 };
@@ -164,7 +164,7 @@ function App() {
                 Última actualización: {node.timestamp}
               </p>
               <p className="text-sm text-slate-300">
-                Relay: {node.relay === 1 ? "Encendido" : "Apagado"}
+                Relay: {node.relayOn ? "Encendido" : "Apagado"}
               </p>
             </div>
 
