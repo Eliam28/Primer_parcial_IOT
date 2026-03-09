@@ -2,11 +2,12 @@
 import json
 from datetime import datetime
 import paho.mqtt.client as mqtt
+from pathlib import Path
 
 BROKER = "192.168.0.28"
 PORT = 1883
 TOPIC = "iot/ambiente/#"
-FILE = "data.json"
+FILE = Path(__file__).resolve().parent / "data.json"
 
 def on_connect(client, userdata, flags, rc):
     print("Conectado al broker MQTT")
@@ -23,14 +24,14 @@ def on_message(client, userdata, msg):
         }
 
         try:
-            with open(FILE, "r") as f:
+            with open(FILE, "r", encoding="utf-8") as f:
                 historial = json.load(f)
         except:
             historial = []
 
         historial.append(data)
 
-        with open(FILE, "w") as f:
+        with open(FILE, "w", encoding="utf-8") as f:
             json.dump(historial, f, indent=4)
 
         print("Dato guardado:", data)

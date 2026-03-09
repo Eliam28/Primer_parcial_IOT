@@ -3,18 +3,19 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import json
 import paho.mqtt.publish as publish
+from pathlib import Path
 
-FILE = "data.json"
-BROKER = "localhost"
+FILE = Path(__file__).resolve().parent / "data.json"
+BROKER = "192.168.0.28"
 
 app = Flask(__name__)
 CORS(app)
 
 def load_data():
     try:
-        with open(FILE) as f:
+        with open(FILE, encoding="utf-8") as f:
             return json.load(f)
-    except:
+    except: 
         return []
 
 @app.route("/api/latest")

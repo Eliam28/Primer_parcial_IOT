@@ -18,7 +18,34 @@ type SensorData = {
   timestamp: string;
 };
 
-const API_BASE = "http://localhost:5000/api";
+type RawApiItem = {
+  timestamp: string;
+  topic?: string;
+  data?: {
+    nodo?: string;
+    temperatura?: number;
+    humedad?: number;
+    luz?: number;
+    relay?: number;
+  };
+};
+
+const API_BASE = import.meta.env.VITE_API_BASE ?? "/api";
+
+const normalizeItem = (item: RawApiItem): SensorData | null => {
+  if (!item?.data?.nodo) {
+    return null;
+  }
+
+  return {
+    nodo: item.data.nodo,
+    temperatura: Number(item.data.temperatura ?? 0),
+    humedad: Number(item.data.humedad ?? 0),
+    luz: Number(item.data.luz ?? 0),
+    relay: item.data.relay,
+    timestamp: item.timestamp,
+  };
+};
 
 function App() {
   const [latest, setLatest] = useState<SensorData[]>([]);
@@ -29,7 +56,6 @@ function App() {
   const getData = async (): Promise<void> => {
     try {
       setError("");
-
       const latestRes = await fetch(`${API_BASE}/latest`);
       const historyRes = await fetch(`${API_BASE}/history?limit=20`);
 
@@ -37,8 +63,16 @@ function App() {
         throw new Error("Error al obtener datos");
       }
 
-      const latestData: SensorData[] = await latestRes.json();
-      const historyData: SensorData[] = await historyRes.json();
+      const latestRaw: RawApiItem[] = await latestRes.json();
+      const historyRaw: RawApiItem[] = await historyRes.json();
+
+      const latestData = latestRaw
+        .map(normalizeItem)
+        .filter((item): item is SensorData => item !== null);
+
+      const historyData = historyRaw
+        .map(normalizeItem)
+        .filter((item): item is SensorData => item !== null);
 
       setLatest(latestData);
       setHistory(historyData);
@@ -62,13 +96,17 @@ function App() {
 
   const handleRelay = async (nodo: string, estado: number): Promise<void> => {
     try {
-      await fetch(`${API_BASE}/control`, {
+      const controlRes = await fetch(`${API_BASE}/control`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ nodo, estado }),
+        body: JSON.stringify({ nodo, estado: String(estado) }),
       });
+
+      if (!controlRes.ok) {
+        throw new Error("Error en control");
+      }
 
       getData();
     } catch (err) {
