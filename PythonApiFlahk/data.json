@@ -7356,5 +7356,1032 @@
             "humedad": null,
             "luz": 100
         }
+    },
+    {
+        "timestamp": "2026-03-08T20:26:56.893452",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 58.3,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:26:58.769829",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:01.894752",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 58.3,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:03.770309",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:06.896256",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 58.2,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:08.778285",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:11.896611",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 58.0,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:13.774993",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:16.898638",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 58.0,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:18.779365",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:21.898533",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 58.0,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:23.779376",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:26.899310",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.2,
+            "humedad": 58.2,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:28.782243",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:31.904097",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.2,
+            "humedad": 58.3,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:33.784443",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:36.902643",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.2,
+            "humedad": 58.5,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:38.790851",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:43.789805",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:48.793055",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:53.793150",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:27:58.797434",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:00.107654",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 59.8,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:03.801277",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:05.109859",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 60.2,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:08.802281",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:10.110534",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 60.4,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:13.803682",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:15.109843",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 60.6,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:18.806724",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:20.111340",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 60.7,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:23.806521",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:25.112389",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 61.1,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:28.814891",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:30.114782",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 61.3,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:33.812997",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:35.114556",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 61.6,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:38.816996",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:40.118333",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 61.6,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:43.817462",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:45.124455",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 61.9,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:48.825904",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:50.119593",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 62.1,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:53.823159",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:55.120521",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 62.3,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:28:58.825302",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:00.124504",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 62.9,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:03.824938",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:05.122576",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 63.1,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:08.831924",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:10.124143",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 63.3,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:13.829158",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:15.136071",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.4,
+            "humedad": 63.4,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:18.840589",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:20.127576",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.3,
+            "humedad": 63.4,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:23.836947",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:25.127453",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.4,
+            "humedad": 63.4,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:28.840927",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:30.132732",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.4,
+            "humedad": 63.3,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:33.839216",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:35.141321",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.4,
+            "humedad": 63.3,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:38.843780",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:40.138488",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.4,
+            "humedad": 63.2,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:43.845038",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:45.131456",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.4,
+            "humedad": 63.1,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:48.850076",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:50.137404",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.5,
+            "humedad": 63.1,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:53.849275",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:55.173390",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.5,
+            "humedad": 63.2,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:29:58.852334",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:30:00.136401",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.5,
+            "humedad": 63.1,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:30:03.853707",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:30:05.138211",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.5,
+            "humedad": 63.1,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:30:08.861051",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:30:10.145864",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.4,
+            "humedad": 62.9,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:30:13.859493",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:30:15.139954",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.5,
+            "humedad": 62.9,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:30:18.865713",
+        "topic": "iot/ambiente/nodo2",
+        "data": {
+            "nodo": "nodo2",
+            "dht_ok": false,
+            "ldr_ok": true,
+            "relay_ok": false,
+            "temperatura": null,
+            "humedad": null,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T20:30:20.141225",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "dht_ok": true,
+            "ldr_ok": true,
+            "relay_ok": true,
+            "temperatura": 24.5,
+            "humedad": 62.9,
+            "luz": 100
+        }
     }
 ]

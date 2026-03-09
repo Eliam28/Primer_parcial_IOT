@@ -17,6 +17,9 @@
 #define USE_LDR true
 #define USE_RELAY true
 
+// Muchos modulos de relay en ESP32 son activos en LOW.
+#define RELAY_ACTIVE_LOW true
+
 // WiFi
 const char* ssid = "red emiliano";
 const char* password = "202320082004";
@@ -41,6 +44,18 @@ DHT dht(DHTPIN, DHTTYPE);
 // Topics MQTT construidos automaticamente con NODE_ID
 char topic_pub[64];
 char topic_sub[64];
+
+void setRelay(bool on) {
+  if (!USE_RELAY) {
+    return;
+  }
+
+  if (RELAY_ACTIVE_LOW) {
+    digitalWrite(RELAY_PIN, on ? LOW : HIGH);
+  } else {
+    digitalWrite(RELAY_PIN, on ? HIGH : LOW);
+  }
+}
 
 void setup_wifi() {
   delay(10);
@@ -68,17 +83,21 @@ void callback(char* topic, byte* payload, unsigned int length) {
     message += (char)payload[i];
   }
 
+  message.trim();
+
+  Serial.print("Topic recibido: ");
+  Serial.println(topic);
   Serial.print("Mensaje recibido: ");
   Serial.println(message);
 
   if (USE_RELAY) {
     if (message == "1") {
-      digitalWrite(RELAY_PIN, HIGH);
+      setRelay(true);
       Serial.println("Relevador ENCENDIDO");
     }
 
     if (message == "0") {
-      digitalWrite(RELAY_PIN, LOW);
+      setRelay(false);
       Serial.println("Relevador APAGADO");
     }
   }
@@ -110,7 +129,7 @@ void setup() {
 
   if (USE_RELAY) {
     pinMode(RELAY_PIN, OUTPUT);
-    digitalWrite(RELAY_PIN, LOW);
+    setRelay(false);
   }
 
   if (USE_DHT) {
