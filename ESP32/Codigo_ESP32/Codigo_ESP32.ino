@@ -20,12 +20,6 @@ Adafruit Unified Sensor
 // Cambiar el identificador del nodo
 #define NODE_ID "nodo1"      // CAMBIAR: nodo1 / nodo2 / nodo3
 
-// Topic de publicación
-#define TOPIC_PUB "iot/ambiente/nodo1"   // CAMBIAR para cada nodo
-
-// Topic de control
-#define TOPIC_SUB "iot/control/nodo1"    // CAMBIAR para cada nodo
-
 /////////////////////////////////////////////
 
 // WiFi
@@ -33,7 +27,11 @@ const char* ssid = "red emiliano";        // CAMBIAR
 const char* password = "202320082004"; // CAMBIAR
 
 // IP del Raspberry Pi (Broker MQTT)
-const char* mqtt_server = "192.168.1.100"; // CAMBIAR
+const char* mqtt_server = "192.168.0.28"; // Debe coincidir con la API
+
+// Topics MQTT construidos automaticamente con NODE_ID
+char topic_pub[64];
+char topic_sub[64];
 
 /////////////////////////////////////////////////
 // PINES Cambiar a los que esten conectados
@@ -121,7 +119,7 @@ void reconnect() {
 
       Serial.println("conectado");
 
-      client.subscribe(TOPIC_SUB);
+      client.subscribe(topic_sub);
 
     } else {
 
@@ -148,6 +146,14 @@ void setup() {
   dht.begin();
 
   setup_wifi();
+
+  snprintf(topic_pub, sizeof(topic_pub), "iot/ambiente/%s", NODE_ID);
+  snprintf(topic_sub, sizeof(topic_sub), "iot/control/%s", NODE_ID);
+
+  Serial.print("TOPIC_PUB: ");
+  Serial.println(topic_pub);
+  Serial.print("TOPIC_SUB: ");
+  Serial.println(topic_sub);
 
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
@@ -220,7 +226,7 @@ void loop() {
     // PUBLICAR MQTT
     //////////////////////////////////////
 
-    client.publish(TOPIC_PUB, payload.c_str());
+    client.publish(topic_pub, payload.c_str());
 
     Serial.print("Publicado: ");
     Serial.println(payload);
