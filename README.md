@@ -4,29 +4,38 @@
 
 ## 1. Clonar el repositorio
 
+```bash
 git clone https://github.com/Eliam28/Primer_parcial_IOT
-
 cd Primer_parcial_IOT
+```
 
 # Configuración del Gateway (Raspberry Pi)
 
 Actualizar sistema:
 
+```bash
 sudo apt update
 sudo apt upgrade
+```
 
 Instalar Mosquitto:
 
+```bash
 sudo apt install mosquitto mosquitto-clients -y
+```
 
 Activar servicio:
 
+```bash
 sudo systemctl enable mosquitto
 sudo systemctl start mosquitto
+```
 
 Verificar estado:
 
+```bash
 sudo systemctl status mosquitto
+```
 
 El broker MQTT se ejecutará en el **puerto 1883**.
 
