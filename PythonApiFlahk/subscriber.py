@@ -3,7 +3,7 @@ import json
 from datetime import datetime
 import paho.mqtt.client as mqtt
 
-BROKER = "localhost"
+BROKER = "192.168.0.28"
 PORT = 1883
 TOPIC = "iot/ambiente/#"
 FILE = "data.json"
