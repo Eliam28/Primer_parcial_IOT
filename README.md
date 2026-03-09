@@ -1,37 +1,49 @@
 # Sistema de Monitoreo Ambiental IoT
 
-# Instalación del Proyecto
+Este proyecto implementa un **sistema IoT de monitoreo ambiental** utilizando **ESP32**, comunicación **MQTT**, una **API REST con Flask** y un **dashboard web** para visualizar datos en tiempo real.
 
-## 1. Clonar el repositorio
+El sistema permite medir:
+
+- Temperatura
+- Humedad
+- Luminosidad
+
+Además, permite **controlar un relevador remotamente** desde el dashboard web.
+
+---
+
+# 1. Clonar el repositorio
 
 ```bash
 git clone https://github.com/Eliam28/Primer_parcial_IOT
 cd Primer_parcial_IOT
 ```
 
-# Configuración del Gateway (Raspberry Pi)
+---
 
-Actualizar sistema:
+# 2. Configuración del Gateway (Raspberry Pi)
+
+Actualizar el sistema:
 
 ```bash
 sudo apt update
 sudo apt upgrade
 ```
 
-Instalar Mosquitto:
+Instalar Mosquitto MQTT:
 
 ```bash
 sudo apt install mosquitto mosquitto-clients -y
 ```
 
-Activar servicio:
+Habilitar el servicio:
 
 ```bash
 sudo systemctl enable mosquitto
 sudo systemctl start mosquitto
 ```
 
-Verificar estado:
+Verificar que el servicio esté activo:
 
 ```bash
 sudo systemctl status mosquitto
@@ -41,9 +53,9 @@ El broker MQTT se ejecutará en el **puerto 1883**.
 
 ---
 
-# Configuración del Hardware
+# 3. Configuración del Hardware
 
-Cada nodo ESP32 tiene conectados los siguientes sensores.
+Cada nodo ESP32 tiene conectados los siguientes módulos.
 
 ## Sensor DHT22
 
@@ -75,7 +87,7 @@ Cada nodo ESP32 tiene conectados los siguientes sensores.
 
 ---
 
-# Programación de los ESP32
+# 4. Programación de los ESP32
 
 Abrir **Arduino IDE** e instalar las siguientes librerías:
 
@@ -103,7 +115,7 @@ nodo3
 
 ---
 
-# Configuración del Backend (Python API)
+# 5. Instalación de dependencias Python
 
 Entrar a la carpeta del backend:
 
@@ -119,15 +131,17 @@ pip install -r requirements.txt
 
 ---
 
-# Ejecutar Subscriber MQTT
+# 6. Ejecución del Subscriber MQTT
 
-El subscriber recibe los datos de los nodos ESP32 y los almacena en un archivo JSON.
+El subscriber recibe los datos enviados por los nodos ESP32 y los guarda en un archivo JSON.
+
+Ejecutar:
 
 ```bash
 python subscriber.py
 ```
 
-Los datos se guardan en:
+Los datos recibidos se almacenan en:
 
 ```
 data.json
@@ -135,7 +149,9 @@ data.json
 
 ---
 
-# Ejecutar API REST
+# 7. Ejecución de la API REST
+
+Ejecutar:
 
 ```bash
 python api.py
@@ -149,59 +165,9 @@ http://localhost:5000
 
 ---
 
-# Endpoints de la API
+# 8. Ejecución del Dashboard
 
-### Obtener últimas lecturas
-
-```
-GET /api/latest
-```
-
----
-
-### Obtener historial
-
-```
-GET /api/history?limit=50
-```
-
----
-
-### Estadísticas de sensores
-
-```
-GET /api/stats
-```
-
----
-
-### Controlar relevador
-
-```
-POST /api/control
-```
-
-Body:
-
-```json
-{
-  "nodo": "nodo1",
-  "estado": 1
-}
-```
-
-Estados:
-
-```
-1 = Encender
-0 = Apagar
-```
-
----
-
-# Ejecutar Dashboard Web
-
-Entrar a la carpeta:
+Entrar a la carpeta del dashboard:
 
 ```bash
 cd dashboard
@@ -219,7 +185,7 @@ Ejecutar servidor de desarrollo:
 npm run dev
 ```
 
-El dashboard se abrirá normalmente en:
+El dashboard normalmente se abrirá en:
 
 ```
 http://localhost:5173
@@ -227,14 +193,35 @@ http://localhost:5173
 
 ---
 
-# Funcionamiento del Sistema
+# 9. Uso del Sistema
 
-1. Encender Raspberry Pi (broker MQTT)
-2. Ejecutar `subscriber.py`
-3. Ejecutar `api.py`
-4. Encender los nodos ESP32
-5. Ejecutar el dashboard web
-6. Visualizar datos en tiempo real
-7. Controlar relevadores desde el dashboard
+Para utilizar el sistema completo seguir los siguientes pasos:
 
----
+1. Encender la Raspberry Pi con el broker MQTT activo.
+2. Ejecutar el subscriber:
+
+```bash
+python subscriber.py
+```
+
+3. Ejecutar la API REST:
+
+```bash
+python api.py
+```
+
+4. Encender los nodos ESP32 conectados a los sensores.
+5. Ejecutar el dashboard web.
+6. Abrir el navegador en:
+
+```
+http://localhost:5173
+```
+
+Desde el dashboard se pueden:
+
+- Visualizar datos de **temperatura**
+- Visualizar datos de **humedad**
+- Visualizar datos de **luminosidad**
+- Controlar el **relevador de cada nodo**
+- Monitorear datos en **tiempo real**
