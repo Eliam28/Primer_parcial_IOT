@@ -5,7 +5,7 @@ import json
 import paho.mqtt.publish as publish
 
 FILE = "data.json"
-BROKER = "localhost"
+BROKER = "192.168.0.28"
 
 app = Flask(__name__)
 CORS(app)

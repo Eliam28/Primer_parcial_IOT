@@ -1,0 +1,72 @@
+[
+    {
+        "timestamp": "2026-03-08T19:02:58.817173",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "temperatura": 26.3,
+            "humedad": 55.8,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T19:03:03.827756",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "temperatura": 26.3,
+            "humedad": 55.8,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T19:03:08.818075",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "temperatura": 26.3,
+            "humedad": 55.7,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T19:03:13.820332",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "temperatura": 26.3,
+            "humedad": 55.8,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T19:03:18.875021",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "temperatura": 26.3,
+            "humedad": 55.7,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T19:03:23.820829",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "temperatura": 26.3,
+            "humedad": 55.7,
+            "luz": 100
+        }
+    },
+    {
+        "timestamp": "2026-03-08T19:03:28.824648",
+        "topic": "iot/ambiente/nodo1",
+        "data": {
+            "nodo": "nodo1",
+            "temperatura": 26.3,
+            "humedad": 55.8,
+            "luz": 100
+        }
+    }
+]
