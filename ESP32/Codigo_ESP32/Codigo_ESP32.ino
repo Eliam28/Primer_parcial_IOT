@@ -21,11 +21,11 @@
 #define RELAY_ACTIVE_LOW true
 
 // WiFi
-const char* ssid = "red emiliano";
-const char* password = "202320082004";
+const char* ssid = "Alumno";
+const char* password = "Mebe2ege";
 
 // IP del Raspberry Pi (Broker MQTT)
-const char* mqtt_server = "192.168.0.28"; // Debe coincidir con la API
+const char* mqtt_server = "10.10.3.133"; // Debe coincidir con la API
 
 /////////////////////////////////////////////////
 // PINES Cambiar a los que esten conectados
@@ -34,8 +34,8 @@ const char* mqtt_server = "192.168.0.28"; // Debe coincidir con la API
 #define DHTPIN 4
 #define DHTTYPE DHT22
 
-#define LDR_PIN 34
-#define RELAY_PIN 17
+#define LDR_PIN 34    
+#define RELAY_PIN 25
 
 WiFiClient espClient;
 PubSubClient client(espClient);
