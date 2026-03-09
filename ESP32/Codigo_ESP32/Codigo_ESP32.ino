@@ -9,12 +9,6 @@
 // Cambiar el identificador del nodo
 #define NODE_ID "nodo1"      // CAMBIAR: nodo1 / nodo2 / nodo3
 
-// Topic de publicación
-#define TOPIC_PUB "iot/ambiente/nodo1"   // CAMBIAR para cada nodo
-
-// Topic de control
-#define TOPIC_SUB "iot/control/nodo1"    // CAMBIAR para cada nodo
-
 /////////////////////////////////////////////
 // ACTIVAR / DESACTIVAR COMPONENTES
 /////////////////////////////////////////////
@@ -28,7 +22,7 @@ const char* ssid = "red emiliano";
 const char* password = "202320082004";
 
 // IP del Raspberry Pi (Broker MQTT)
-const char* mqtt_server = "192.168.1.100"; // CAMBIAR
+const char* mqtt_server = "192.168.0.28"; // Debe coincidir con la API
 
 /////////////////////////////////////////////////
 // PINES Cambiar a los que esten conectados
@@ -43,6 +37,10 @@ const char* mqtt_server = "192.168.1.100"; // CAMBIAR
 WiFiClient espClient;
 PubSubClient client(espClient);
 DHT dht(DHTPIN, DHTTYPE);
+
+// Topics MQTT construidos automaticamente con NODE_ID
+char topic_pub[64];
+char topic_sub[64];
 
 void setup_wifi() {
   delay(10);
@@ -96,7 +94,7 @@ void reconnect() {
 
       Serial.println("conectado");
 
-      client.subscribe(TOPIC_SUB);
+      client.subscribe(topic_sub);
 
     } else {
       Serial.print("Error, rc=");
@@ -239,7 +237,7 @@ void loop() {
     // PUBLICAR MQTT
     //////////////////////////////////////
 
-    client.publish(TOPIC_PUB, payload.c_str());
+    client.publish(topic_pub, payload.c_str());
 
     Serial.print("Publicado: ");
     Serial.println(payload);
