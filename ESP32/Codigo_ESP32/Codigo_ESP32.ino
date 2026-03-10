@@ -1,14 +1,3 @@
-/*
-=========================================
-CONFIGURACION GENERAL
-=========================================
-Librerías necesarias:
-WiFi
-PubSubClient
-DHT sensor library (Adafruit)
-Adafruit Unified Sensor
-*/
-
 #include <WiFi.h>
 #include <PubSubClient.h>
 #include "DHT.h"
@@ -20,54 +9,63 @@ Adafruit Unified Sensor
 // Cambiar el identificador del nodo
 #define NODE_ID "nodo1"      // CAMBIAR: nodo1 / nodo2 / nodo3
 
-// Topic de publicación
-#define TOPIC_PUB "iot/ambiente/nodo1"   // CAMBIAR para cada nodo
-
-// Topic de control
-#define TOPIC_SUB "iot/control/nodo1"    // CAMBIAR para cada nodo
-
+/////////////////////////////////////////////
+// ACTIVAR / DESACTIVAR COMPONENTES
 /////////////////////////////////////////////
 
+#define USE_DHT true
+#define USE_LDR true
+#define USE_RELAY true
+
+// Muchos modulos de relay en ESP32 son activos en LOW.
+#define RELAY_ACTIVE_LOW true
+
 // WiFi
-const char* ssid = "red emiliano";        // CAMBIAR
-const char* password = "202320082004"; // CAMBIAR
+const char* ssid = "red emiliano";
+const char* password = "202320082004";
 
 // IP del Raspberry Pi (Broker MQTT)
-const char* mqtt_server = "192.168.1.100"; // CAMBIAR
+const char* mqtt_server = "192.168.0.28"; // Debe coincidir con la API
 
 /////////////////////////////////////////////////
 // PINES Cambiar a los que esten conectados
 /////////////////////////////////////////////////
 
-#define DHTPIN 4 // Este
+#define DHTPIN 4
 #define DHTTYPE DHT22
 
-#define LDR_PIN 34 // Este
-
-#define RELAY_PIN 17 // Este
-
-/////////////////////////////////////////////////
+#define LDR_PIN 34
+#define RELAY_PIN 17
 
 WiFiClient espClient;
 PubSubClient client(espClient);
 DHT dht(DHTPIN, DHTTYPE);
 
-/////////////////////////////////////////////////
-// CONEXION WIFI
-/////////////////////////////////////////////////
+// Topics MQTT construidos automaticamente con NODE_ID
+char topic_pub[64];
+char topic_sub[64];
+
+void setRelay(bool on) {
+  if (!USE_RELAY) {
+    return;
+  }
+
+  if (RELAY_ACTIVE_LOW) {
+    digitalWrite(RELAY_PIN, on ? LOW : HIGH);
+  } else {
+    digitalWrite(RELAY_PIN, on ? HIGH : LOW);
+  }
+}
 
 void setup_wifi() {
-
   delay(10);
-
   Serial.println();
   Serial.print("Conectando a ");
-  Serial.println(ssid);
+  Serial.println(ssid);  
 
   WiFi.begin(ssid, password);
 
   while (WiFi.status() != WL_CONNECTED) {
-
     delay(500);
     Serial.print(".");
   }
@@ -78,42 +76,36 @@ void setup_wifi() {
   Serial.println(WiFi.localIP());
 }
 
-/////////////////////////////////////////////////
-// CALLBACK MQTT (CONTROL RELEVADOR)
-/////////////////////////////////////////////////
-
 void callback(char* topic, byte* payload, unsigned int length) {
-
   String message;
 
   for (int i = 0; i < length; i++) {
     message += (char)payload[i];
   }
 
+  message.trim();
+
+  Serial.print("Topic recibido: ");
+  Serial.println(topic);
   Serial.print("Mensaje recibido: ");
   Serial.println(message);
 
-  if (message == "1") {
-    digitalWrite(RELAY_PIN, HIGH);
-    Serial.println("Relevador ENCENDIDO");
-  }
+  if (USE_RELAY) {
+    if (message == "1") {
+      setRelay(true);
+      Serial.println("Relevador ENCENDIDO");
+    }
 
-  if (message == "0") {
-    digitalWrite(RELAY_PIN, LOW);
-    Serial.println("Relevador APAGADO");
+    if (message == "0") {
+      setRelay(false);
+      Serial.println("Relevador APAGADO");
+    }
   }
 }
 
-/////////////////////////////////////////////////
-// RECONEXION MQTT
-/////////////////////////////////////////////////
-
 void reconnect() {
-
   while (!client.connected()) {
-
     Serial.print("Intentando conexion MQTT...");
-
     String clientId = "ESP32-";
     clientId += NODE_ID;
 
@@ -121,46 +113,50 @@ void reconnect() {
 
       Serial.println("conectado");
 
-      client.subscribe(TOPIC_SUB);
+      client.subscribe(topic_sub);
 
     } else {
-
       Serial.print("Error, rc=");
       Serial.print(client.state());
       Serial.println(" intentando de nuevo en 5s");
-
       delay(5000);
     }
   }
 }
 
-/////////////////////////////////////////////////
-// SETUP
-/////////////////////////////////////////////////
-
 void setup() {
-
   Serial.begin(9600);
 
-  pinMode(RELAY_PIN, OUTPUT);
-  digitalWrite(RELAY_PIN, LOW);
+  if (USE_RELAY) {
+    pinMode(RELAY_PIN, OUTPUT);
+    setRelay(false);
+  }
 
-  dht.begin();
+  if (USE_DHT) {
+    dht.begin();
+  }
+
+  if (USE_LDR) {
+    pinMode(LDR_PIN, INPUT);
+  }
 
   setup_wifi();
+
+  snprintf(topic_pub, sizeof(topic_pub), "iot/ambiente/%s", NODE_ID);
+  snprintf(topic_sub, sizeof(topic_sub), "iot/control/%s", NODE_ID);
+
+  Serial.print("TOPIC_PUB: ");
+  Serial.println(topic_pub);
+  Serial.print("TOPIC_SUB: ");
+  Serial.println(topic_sub);
 
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
 }
 
-/////////////////////////////////////////////////
-// LOOP
-/////////////////////////////////////////////////
-
 unsigned long lastMsg = 0;
 
 void loop() {
-
   if (!client.connected()) {
     reconnect();
   }
@@ -170,32 +166,48 @@ void loop() {
   unsigned long now = millis();
 
   if (now - lastMsg > 5000) {
-
     lastMsg = now;
 
-    //////////////////////////////////////
-    // LEER SENSORES
-    //////////////////////////////////////
+    bool dht_ok = false;
+    bool ldr_ok = false;
+    bool relay_ok = false;
 
-    float temperatura = dht.readTemperature();
-    float humedad = dht.readHumidity();
+    float temperatura = -1.0;
+    float humedad = -1.0;
+    int ldr = -1;
+    int luz = -1;
 
-    int ldr = analogRead(LDR_PIN);
-    int luz = map(ldr, 0, 4095, 0, 100);
+    if (USE_DHT) {
+      temperatura = dht.readTemperature();
+      humedad = dht.readHumidity();
 
-    //////////////////////////////////////
-    // VALIDAR DATOS
-    //////////////////////////////////////
-
-    if (isnan(temperatura) || isnan(humedad)) {
-
-      Serial.println("Error leyendo DHT");
-      return;
+      if (!isnan(temperatura) && !isnan(humedad)) {
+        dht_ok = true;
+      } else {
+        Serial.println("Error leyendo DHT");
+      }
+    } else {
+      dht_ok = false;
     }
 
-    //////////////////////////////////////
-    // CREAR JSON
-    //////////////////////////////////////
+    if (USE_LDR) {
+      ldr = analogRead(LDR_PIN);
+
+      if (ldr >= 0 && ldr <= 4095) {
+        ldr_ok = true;
+        luz = map(ldr, 0, 4095, 0, 100);
+      } else {
+        Serial.println("Error leyendo LDR");
+      }
+    } else {
+      ldr_ok = false;
+    }
+
+    if (USE_RELAY) {
+      relay_ok = true;
+    } else {
+      relay_ok = false;
+    }
 
     String payload = "{";
 
@@ -203,16 +215,40 @@ void loop() {
     payload += NODE_ID;
     payload += "\",";
 
+    payload += "\"dht_ok\":";
+    payload += (dht_ok ? "true" : "false");
+    payload += ",";
+
+    payload += "\"ldr_ok\":";
+    payload += (ldr_ok ? "true" : "false");
+    payload += ",";
+
+    payload += "\"relay_ok\":";
+    payload += (relay_ok ? "true" : "false");
+    payload += ",";
+
     payload += "\"temperatura\":";
-    payload += String(temperatura);
+    if (dht_ok) {
+      payload += String(temperatura, 2);
+    } else {
+      payload += "null";
+    }
     payload += ",";
 
     payload += "\"humedad\":";
-    payload += String(humedad);
+    if (dht_ok) {
+      payload += String(humedad, 2);
+    } else {
+      payload += "null";
+    }
     payload += ",";
 
     payload += "\"luz\":";
-    payload += String(luz);
+    if (ldr_ok) {
+      payload += String(luz);
+    } else {
+      payload += "null";
+    }
 
     payload += "}";
 
@@ -220,7 +256,7 @@ void loop() {
     // PUBLICAR MQTT
     //////////////////////////////////////
 
-    client.publish(TOPIC_PUB, payload.c_str());
+    client.publish(topic_pub, payload.c_str());
 
     Serial.print("Publicado: ");
     Serial.println(payload);
