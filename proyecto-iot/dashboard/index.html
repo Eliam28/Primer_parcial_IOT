@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard IoT Ambiental</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Monitoreo Ambiental IoT</h1>
+      <p>
+        Lecturas en tiempo real de temperatura, humedad y luminosidad por nodo
+        ESP32.
+      </p>
+      <p id="last-update">Ultima actualizacion: --</p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Nodos</h2>
+        <div id="cards" class="cards"></div>
+      </section>
+
+      <section class="charts">
+        <article class="chart-card">
+          <h2>Temperatura Historica</h2>
+          <canvas id="tempChart"></canvas>
+        </article>
+        <article class="chart-card">
+          <h2>Luminosidad Actual por Nodo</h2>
+          <canvas id="lightChart"></canvas>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
